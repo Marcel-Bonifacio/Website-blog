@@ -1,6 +1,6 @@
 # tirtawijata.com — Personal Blog
 
-Personal website of Marcel Bonifacio Tirta Wijata. Built with static HTML/CSS/JS, hosted on GitHub Pages.
+Personal website built with static HTML/CSS/JS, hosted on GitHub Pages.
 
 ---
 
@@ -36,7 +36,7 @@ After sync, new posts appear with `featured: false`. If you want to promote one 
 
 ---
 
-### Adding a Medium or Kumparan article manually
+### Adding article manually
 
 Open `posts.js` and add a new entry to the `POSTS` array:
 
