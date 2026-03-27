@@ -1,0 +1,33 @@
+name: Sync Posts
+
+# Runs daily at 07:00 UTC and can be triggered manually from GitHub Actions UI
+on:
+  schedule:
+    - cron: "0 7 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Sync posts from Medium and Kumparan
+        run: python sync.py
+
+      - name: Commit updated posts.js (if changed)
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: sync posts from Medium and Kumparan [skip ci]"
+          file_pattern: posts.js
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"

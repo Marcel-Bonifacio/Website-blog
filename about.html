@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="About Marcel Bonifacio Tirta Wijata — energy researcher and climate advocate engaging in research and practice on renewable energy and climate change in Indonesia.">
+<meta name="author" content="Marcel Bonifacio Tirta Wijata">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="About Marcel Bonifacio Tirta Wijata — Energy Researcher & Climate Advocate">
+<meta property="og:description" content="Energy researcher and climate advocate engaging in research and practice on renewable energy and climate change in Indonesia.">
+<meta property="og:url" content="https://tirtawijata.com/about.html">
+<meta property="og:image" content="https://tirtawijata.com/assets/images/image02_v%3Dde04ef50.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="About Marcel Bonifacio Tirta Wijata">
+<meta name="twitter:description" content="Energy researcher and climate advocate engaging in research and practice on renewable energy and climate change in Indonesia.">
+<link rel="canonical" href="https://tirtawijata.com/about.html">
+<title>About — Marcel Bonifacio Tirta Wijata</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Marcel Bonifacio Tirta Wijata",
+  "url": "https://tirtawijata.com",
+  "image": "https://tirtawijata.com/assets/images/image02_v%3Dde04ef50.jpg",
+  "sameAs": [
+    "https://www.linkedin.com/in/marceltirtawijata/",
+    "https://medium.com/@marcelbonifaciotirtawijata",
+    "https://kumparan.com/marcel-bonifacio-tirta-wijata",
+    "https://scholar.google.com/citations?view_op=new_articles&hl=id&imq=Marcel+Bonifacio+Tirta+Wijata"
+  ],
+  "jobTitle": "Energy Researcher",
+  "description": "Advocate for renewable energy, engaging in research and practice related to renewable energy and climate change."
+}
+</script>
+<link rel="stylesheet" href="styles.css">
+<script>
+(function(){
+  var t=localStorage.getItem('theme');
+  if(t) document.documentElement.setAttribute('data-theme',t);
+})();
+</script>
+</head>
+<body>
+
+<header>
+<div class="container header-inner">
+  <a href="index.html" class="site-title">
+    <h1>Marcel Bonifacio Tirta Wijata</h1>
+    <p class="subtitle">Energy Researcher &amp; Climate Advocate</p>
+  </a>
+  <div class="header-right">
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="current-page">About</a></li>
+        <li><a href="blog.html">Posts</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#9790;</button>
+  </div>
+</div>
+</header>
+
+<div class="container" style="padding-top:2.5rem;padding-bottom:3rem;max-width:720px">
+  <div class="page-header">
+    <h1>About Me</h1>
+  </div>
+
+  <div class="about-hero">
+    <img src="assets/images/image02_v%3Dde04ef50.jpg" alt="Marcel Bonifacio Tirta Wijata" class="about-image">
+    <div class="about-bio">
+      <p class="role">Energy Researcher &amp; Climate Advocate</p>
+      <h2 class="name">Marcel Bonifacio Tirta Wijata</h2>
+      <p>Advocate for renewable energy, and engaging in research and practice related to renewable energy and climate change.</p>
+      <div class="about-social-links">
+        <a href="https://www.linkedin.com/in/marceltirtawijata/" target="_blank" rel="noopener" class="about-social-link">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M12.1,13.8v19.1H5.7V13.8ZM8.9,11.2a3.4,3.4,0,1,1,3.4-3.4A3.4,3.4,0,0,1,8.9,11.2ZM35,33H28.6V22.7c0-2.4-.9-4.3-3.2-4.3a3.3,3.3,0,0,0-3.1,2.3,4,4,0,0,0-.2,1.5V33H15.7V13.8H22v2.8a6.9,6.9,0,0,1,6-3.3c4.5,0,7,3,7,8.6Z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://scholar.google.com/citations?view_op=new_articles&amp;hl=id&amp;imq=Marcel+Bonifacio+Tirta+Wijata" target="_blank" rel="noopener" class="about-social-link">
+          <img src="assets/images/google-scholar.svg" alt=""> Google Scholar
+        </a>
+        <a href="https://kumparan.com/marcel-bonifacio-tirta-wijata" target="_blank" rel="noopener" class="about-social-link">
+          <img src="assets/images/kumparan.svg" alt=""> Kumparan
+        </a>
+        <a href="https://medium.com/@marcelbonifaciotirtawijata" target="_blank" rel="noopener" class="about-social-link">
+          <img src="assets/images/medium.svg" class="icon-medium" alt="">
+          Medium
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+<div class="container">
+  <p>Marcel Bonifacio Tirta Wijata &mdash; &copy; <span id="footer-year"></span><script>document.getElementById('footer-year').textContent=new Date().getFullYear();</script></p>
+</div>
+</footer>
+
+<script>
+(function(){
+  var btn = document.getElementById('theme-toggle');
+  function getTheme(){
+    return document.documentElement.getAttribute('data-theme') ||
+      (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  }
+  function setIcon(theme){ btn.innerHTML = theme === 'dark' ? '&#9728;' : '&#9790;'; }
+  setIcon(getTheme());
+  btn.addEventListener('click', function(){
+    var next = getTheme() === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    setIcon(next);
+  });
+})();
+</script>
+</body>
+</html>

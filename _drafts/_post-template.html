@@ -1,0 +1,83 @@
+<!--
+  HOW TO WRITE A NEW POST
+  ═══════════════════════
+  1. Copy this file to _drafts/your-post-slug.html
+  2. Fill in the META block and your content below
+  3. Run:  python new-post.py _drafts/your-post-slug.html
+  4. Push to GitHub — the site updates automatically
+-->
+
+<!-- META
+slug:    your-post-slug
+title:   Your Post Title
+date:    2026-03-27
+tags:    Renewable Energy, Indonesia, Policy
+excerpt: A one or two sentence summary shown in post listings. Keep it under 260 characters.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Your Post Title | Marcel Bonifacio Tirta Wijata</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<header>
+<div class="container header-inner">
+  <a href="../index.html" class="site-title">
+    <h1>Marcel Bonifacio Tirta Wijata</h1>
+    <p class="subtitle">Energy Researcher &amp; Climate Advocate</p>
+  </a>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../blog.html">Posts</a></li>
+    </ul>
+  </nav>
+</div>
+</header>
+
+<div class="post-wrapper">
+  <a href="../blog.html" class="back-link">&larr; All posts</a>
+
+  <div class="post-header">
+    <h1 class="post-title">Your Post Title</h1>
+    <p class="post-meta">March 27, 2026</p>
+  </div>
+
+  <div class="post-content">
+
+    <!-- Write your content below using standard HTML.
+         Use <p> for paragraphs, <h2> for section headings,
+         <strong> for bold, <em> for italic, <a href="..."> for links.
+         Images: <img src="../assets/images/photo.jpg" alt="description">  -->
+
+    <p>Your introduction paragraph goes here. Explain what this post is about in a few sentences.</p>
+
+    <h2>First Section Heading</h2>
+
+    <p>Body text for this section. You can add as many paragraphs as you need.</p>
+
+    <p>Another paragraph with <strong>bold text</strong> or <em>italic text</em> or
+    <a href="https://example.com" target="_blank" rel="noopener">a link to a source</a>.</p>
+
+    <h2>Second Section Heading</h2>
+
+    <p>Continue writing your article here.</p>
+
+    <p>Closing thoughts.</p>
+
+  </div>
+</div>
+
+<footer>
+<div class="container">
+  <p>Marcel Bonifacio Tirta Wijata &mdash; &copy; <span id="footer-year"></span><script>document.getElementById('footer-year').textContent=new Date().getFullYear();</script></p>
+</div>
+</footer>
+</body>
+</html>
