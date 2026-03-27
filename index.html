@@ -152,16 +152,20 @@
   var rest = sorted.filter(function(p){ return p.id !== featured.id; });
 
   var html = '<article class="article-featured">';
+  if (featured.image) html += '<img src="'+featured.image+'" class="article-featured-img" alt="">';
+  html += '<div class="article-featured-inner">';
   html += '<span class="featured-label">Featured</span>';
   html += '<h2 class="article-title"><a href="'+featured.url+'"'+linkAttr(featured)+'>'+esc(featured.title)+(featured.external?' &#8599;':'')+'</a></h2>';
   html += '<div class="article-meta"><span>'+esc(featured.dateDisplay)+'</span>'+badge(featured.platform)+'</div>';
   html += '<p class="article-body">'+esc(featured.excerpt)+'</p>';
   html += renderTags(featured.tags);
   html += '<a href="'+featured.url+'"'+linkAttr(featured)+' class="article-read-more">Continue Reading</a>';
-  html += '</article>';
+  html += '</div></article>';
 
   rest.slice(0, 4).forEach(function(post) {
-    html += '<article class="article-recent"><div class="article-recent-main">';
+    html += '<article class="article-recent">';
+    if (post.image) html += '<img src="'+post.image+'" class="article-recent-img" alt="">';
+    html += '<div class="article-recent-main">';
     html += '<h2 class="article-title"><a href="'+post.url+'"'+linkAttr(post)+'>'+esc(post.title)+(post.external?' &#8599;':'')+'</a></h2>';
     html += '<div class="article-meta"><span>'+esc(post.dateDisplay)+'</span>'+badge(post.platform)+'</div>';
     html += '<p class="article-body">'+esc(post.excerpt)+'</p>';

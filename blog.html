@@ -105,11 +105,13 @@
   var html = '';
   sorted.forEach(function(post) {
     html += '<div class="blog-card">';
+    if (post.image) html += '<img src="'+post.image+'" class="blog-card-img" alt="">';
+    html += '<div class="blog-card-body">';
     html += '<h2><a href="'+post.url+'"'+linkAttr(post)+'>'+esc(post.title)+(post.external?' &#8599;':'')+'</a></h2>';
     html += '<div class="meta"><span>'+esc(post.dateDisplay)+'</span>'+badge(post.platform)+'</div>';
     html += '<p class="excerpt">'+esc(post.excerpt)+'</p>';
     html += renderTags(post.tags);
-    html += '</div>';
+    html += '</div></div>';
   });
   list.innerHTML = html;
 }());

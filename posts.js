@@ -21,6 +21,7 @@ var POSTS = [
     platform: "Kumparan",
     excerpt: "Electricity tariffs are rising in Indonesia — and renewable energy is getting the blame. But a closer look at IRENA data tells a different story: solar and wind are now cheaper than fossil fuels. So who, or what, is really driving up the cost of power?",
     url: "https://kumparan.com/marcel-bonifacio-tirta-wijata/tarif-listrik-naik-apakah-salah-energi-baru-terbarukan-1xaUHV1Me9z",
+    image: "https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,f_jpg,q_auto,w_600,h_315,c_lpad,b_white/g_south,l_og_user_zprw89/co_rgb:ffffff,g_south_west,l_text:Heebo_20_bold:Konten%20dari%20Pengguna%0DMarcel%20Bonifacio%20Tirta%20Wijata,x_140,y_26/01hrw4gzwdd6d2q0qzfa82ee50.jpg",
     external: true,
     tags: ["Renewable Energy", "Indonesia", "Energy Policy"],
     featured: false
@@ -34,6 +35,7 @@ var POSTS = [
     platform: "Medium",
     excerpt: "With 283 million people and 68% in their prime working years, Indonesia should be an economic powerhouse. Yet the demographic dividend is slipping away — and if the country doesn't act before the mid-2030s population ages, the window may close for good.",
     url: "https://medium.com/@marcelbonifaciotirtawijata/why-indonesias-283-million-people-aren-t-making-it-rich-17d7c7162635",
+    image: "https://miro.medium.com/v2/resize:fit:1200/1*uRgkwU8zecIYgUuSGzpzjQ.jpeg",
     external: true,
     tags: ["Indonesia", "Economy", "Demographics"],
     featured: false
@@ -47,6 +49,7 @@ var POSTS = [
     platform: "Medium",
     excerpt: "Indonesia's carbon tax is designed to fight climate change — but at IDR 30 per kg of CO\u2082e, it risks hitting the poorest households hardest. With coal still powering 67.2% of the grid, the transition cost falls unevenly. Can the policy be redesigned to protect the vulnerable?",
     url: "https://medium.com/@marcelbonifaciotirtawijata/the-economic-impact-of-indonesias-carbon-tax-on-middle-and-lower-income-population-a3bcf4578eda",
+    image: "https://miro.medium.com/v2/resize:fit:1200/0*3K0ZVpZMJZOideIk.jpeg",
     external: true,
     tags: ["Climate Policy", "Indonesia", "Carbon Tax"],
     featured: false
@@ -60,6 +63,7 @@ var POSTS = [
     platform: "Medium",
     excerpt: "Indonesia is the world's top nickel producer — fuelling the EV boom with 1.8 million metric tons in 2023. But behind the green energy narrative lies a trail of deforestation, toxic contamination, and displaced communities. The governance failures are severe, and largely invisible.",
     url: "https://medium.com/@marcelbonifaciotirtawijata/nickel-minings-dirty-secret-wrecking-indonesia-s-environment-99709d748db4",
+    image: "https://miro.medium.com/v2/resize:fit:1200/1*4yE90J9ESTIKHDP2Bed6xQ.jpeg",
     external: true,
     tags: ["Environment", "Indonesia", "Mining"],
     featured: true
@@ -73,6 +77,7 @@ var POSTS = [
     platform: "Medium",
     excerpt: "ASEAN's transport sector runs on oil — 91% of its energy comes from petroleum. The region's long-term renewable roadmap aims to flip that, targeting 67% renewable energy by 2050. What will it take to electrify the way Southeast Asia moves?",
     url: "https://medium.com/@marcelbonifaciotirtawijata/shaping-the-future-of-transportation-the-impact-of-aseans-long-term-renewable-energy-roadmap-e2c595a7f511",
+    image: "https://miro.medium.com/v2/resize:fit:1200/1*Iea-RyxW0YOWnpbrgw97xw.jpeg",
     external: true,
     tags: ["ASEAN", "Renewable Energy", "Transportation"],
     featured: false
@@ -86,6 +91,7 @@ var POSTS = [
     platform: "Medium",
     excerpt: "ASEAN is the world's fifth-largest economy — yet one of its most fossil-fuel dependent. A new long-term roadmap targets 23% renewable energy in primary supply by 2025 and 35% in power generation. The ambition is real. So are the obstacles.",
     url: "https://medium.com/@marcelbonifaciotirtawijata/the-asean-renewable-energy-long-term-roadmap-why-it-matters-and-what-are-the-challenges-4da9b103e0bb",
+    image: "https://miro.medium.com/v2/resize:fit:1000/1*Iea-RyxW0YOWnpbrgw97xw.jpeg",
     external: true,
     tags: ["ASEAN", "Renewable Energy", "Policy"],
     featured: false
