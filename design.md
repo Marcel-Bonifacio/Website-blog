@@ -53,11 +53,13 @@ One accent family only (navy/blue). No purple, no multi-color gradients.
 
 ---
 
-## Dark Mode
-- Toggle button in the header (`#theme-toggle`), handled by `main.js`
-- Persists in `localStorage`; inline head script applies it before first paint
+## Theme Modes
+Three modes, cycled by the header toggle (`#theme-toggle`, handled by `main.js`): **light → dark → high contrast (colour blind friendly) → light**. Icons: moon / half-circle / sun; the button's `aria-label` and `title` always describe the next mode.
+
+- Persists in `localStorage` (`theme` = `light` | `dark` | `cb`); inline head script applies it before first paint
 - Follows `prefers-color-scheme` when no choice is stored
-- Dark theme is deep navy (`#0b1420` base), not gray or black
+- Dark theme is deep navy (`#0b1420` base), not gray or black; text values are tuned bright (`#d8e3ef` body) and blob alphas reduced so copy stays readable over the moving gradient
+- High contrast mode (`data-theme="cb"`): near-monochrome with maximum luminance contrast (black on white, secondary text no lighter than `#555`), one dark blue accent (`#003e92`), the animated gradient removed, gradient text rendered solid, all title and nav links underlined so nothing depends on hue, solid black active filter chips, and a 3px black focus outline. Works for all colour vision types because hierarchy is carried by luminance and underlines, not colour
 
 ---
 

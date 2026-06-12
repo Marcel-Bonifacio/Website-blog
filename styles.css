@@ -43,11 +43,11 @@
   --accent:        #1f4e79;
   --accent-strong: #163a5c;
   --accent-soft:   #4a7fb5;
-  --blob1:         rgba(31, 78, 121, 0.20);
-  --blob2:         rgba(74, 127, 181, 0.24);
-  --blob3:         rgba(56, 152, 199, 0.20);
-  --blob4:         rgba(118, 168, 228, 0.26);
-  --blob5:         rgba(78, 186, 198, 0.16);
+  --blob1:         rgba(31, 78, 121, 0.17);
+  --blob2:         rgba(74, 127, 181, 0.20);
+  --blob3:         rgba(56, 152, 199, 0.17);
+  --blob4:         rgba(118, 168, 228, 0.21);
+  --blob5:         rgba(78, 186, 198, 0.13);
   --blob-blend:    normal;
   --bg-glass:      rgba(255, 255, 255, 0.78);
   --shadow:        rgba(22, 58, 92, 0.10);
@@ -69,21 +69,21 @@
   --bg-subtle:     #101c2c;
   --bg-hover:      #152334;
   --tint:          #16273c;
-  --text:          #c3d2e2;
+  --text:          #d8e3ef;
   --text-strong:   #eef4fa;
-  --secondary:     #91a6bc;
-  --muted:         #7289a1;
-  --label:         #5d7389;
+  --secondary:     #a9bcce;
+  --muted:         #8499ae;
+  --label:         #74889c;
   --border:        #1f3046;
   --border-soft:   #2a3e58;
   --accent:        #79a9d8;
   --accent-strong: #a3c6e8;
   --accent-soft:   #4d7eae;
-  --blob1:         rgba(58, 118, 188, 0.30);
-  --blob2:         rgba(86, 146, 214, 0.26);
-  --blob3:         rgba(56, 162, 206, 0.24);
-  --blob4:         rgba(96, 134, 222, 0.26);
-  --blob5:         rgba(64, 192, 208, 0.18);
+  --blob1:         rgba(58, 118, 188, 0.20);
+  --blob2:         rgba(86, 146, 214, 0.17);
+  --blob3:         rgba(56, 162, 206, 0.16);
+  --blob4:         rgba(96, 134, 222, 0.17);
+  --blob5:         rgba(64, 192, 208, 0.12);
   --blob-blend:    screen;
   --bg-glass:      rgba(11, 20, 32, 0.78);
   --shadow:        rgba(0, 0, 0, 0.45);
@@ -99,21 +99,21 @@
     --bg-subtle:     #101c2c;
     --bg-hover:      #152334;
     --tint:          #16273c;
-    --text:          #c3d2e2;
+    --text:          #d8e3ef;
     --text-strong:   #eef4fa;
-    --secondary:     #91a6bc;
-    --muted:         #7289a1;
-    --label:         #5d7389;
+    --secondary:     #a9bcce;
+    --muted:         #8499ae;
+    --label:         #74889c;
     --border:        #1f3046;
     --border-soft:   #2a3e58;
     --accent:        #79a9d8;
     --accent-strong: #a3c6e8;
     --accent-soft:   #4d7eae;
-    --blob1:         rgba(58, 118, 188, 0.30);
-    --blob2:         rgba(86, 146, 214, 0.26);
-    --blob3:         rgba(56, 162, 206, 0.24);
-    --blob4:         rgba(96, 134, 222, 0.26);
-    --blob5:         rgba(64, 192, 208, 0.18);
+    --blob1:         rgba(58, 118, 188, 0.20);
+    --blob2:         rgba(86, 146, 214, 0.17);
+    --blob3:         rgba(56, 162, 206, 0.16);
+    --blob4:         rgba(96, 134, 222, 0.17);
+    --blob5:         rgba(64, 192, 208, 0.12);
     --blob-blend:    screen;
     --bg-glass:      rgba(11, 20, 32, 0.78);
     --shadow:        rgba(0, 0, 0, 0.45);
@@ -122,6 +122,72 @@
     --footer-text:   #7e95ad;
     --footer-strong: #dce8f4;
   }
+}
+
+/* ─── Color blind / high contrast mode ───
+   Near-monochrome, maximum luminance contrast, no hue-dependent
+   meaning: links are underlined, decorative gradients removed. */
+[data-theme="cb"] {
+  --bg:            #ffffff;
+  --bg-subtle:     #f2f2f2;
+  --bg-hover:      #e9e9e9;
+  --tint:          #e4e4e4;
+  --text:          #1a1a1a;
+  --text-strong:   #000000;
+  --secondary:     #353535;
+  --muted:         #444444;
+  --label:         #555555;
+  --border:        #8c8c8c;
+  --border-soft:   #6e6e6e;
+  --accent:        #003e92;
+  --accent-strong: #00295f;
+  --accent-soft:   #3d5168;
+  --blob-blend:    normal;
+  --bg-glass:      rgba(255, 255, 255, 0.96);
+  --shadow:        rgba(0, 0, 0, 0.25);
+  --footer-bg:     #000000;
+  --footer-bg2:    #1c1c1c;
+  --footer-text:   #d9d9d9;
+  --footer-strong: #ffffff;
+}
+
+/* No decorative colour field; content stands on plain ground */
+[data-theme="cb"] .gradient-bg { display: none; }
+
+/* Gradient text becomes solid for maximum contrast */
+[data-theme="cb"] .hero-title,
+[data-theme="cb"] .notfound .code {
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-fill-color: currentColor;
+  color: var(--text-strong);
+  animation: none;
+}
+
+/* Links identifiable without colour */
+[data-theme="cb"] .feature-title a,
+[data-theme="cb"] .entry-title a,
+[data-theme="cb"] .work-title a,
+[data-theme="cb"] .widget-recent-post-title a,
+[data-theme="cb"] .widget-link,
+[data-theme="cb"] .footer-nav a,
+[data-theme="cb"] nav a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Active filter chip: solid black, not a colour gradient */
+[data-theme="cb"] .filter-chip[aria-pressed="true"] {
+  background: #000;
+  color: #fff;
+  box-shadow: none;
+}
+
+/* Stronger keyboard focus */
+[data-theme="cb"] :focus-visible {
+  outline: 3px solid #000;
+  outline-offset: 2px;
 }
 
 /* Medium icon: dark artwork, inverted for light mode */

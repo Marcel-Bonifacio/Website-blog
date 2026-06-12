@@ -96,19 +96,32 @@
 
   var toggleBtn = document.getElementById('theme-toggle');
   if (toggleBtn) {
+    /* Three modes: light -> dark -> cb (colour blind / high contrast) -> light */
+    var MODES = ['light', 'dark', 'cb'];
+    var ICONS = { light: '☾', dark: '◐', cb: '☀' };
+    var NEXT_LABEL = {
+      light: 'Switch to dark mode',
+      dark: 'Switch to high contrast mode (colour blind friendly)',
+      cb: 'Switch to light mode'
+    };
     var getTheme = function () {
-      return document.documentElement.getAttribute('data-theme') ||
-        (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      var t = document.documentElement.getAttribute('data-theme');
+      if (MODES.indexOf(t) !== -1) return t;
+      return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     };
-    var setIcon = function (theme) {
-      toggleBtn.innerHTML = theme === 'dark' ? '&#9728;' : '&#9790;';
+    var applyTheme = function (theme, store) {
+      document.documentElement.setAttribute('data-theme', theme);
+      toggleBtn.textContent = ICONS[theme];
+      toggleBtn.setAttribute('aria-label', NEXT_LABEL[theme]);
+      toggleBtn.setAttribute('title', NEXT_LABEL[theme]);
+      if (store) {
+        try { localStorage.setItem('theme', theme); } catch (e) { /* private mode */ }
+      }
     };
-    setIcon(getTheme());
+    applyTheme(getTheme(), false);
     toggleBtn.addEventListener('click', function () {
-      var next = getTheme() === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      try { localStorage.setItem('theme', next); } catch (e) { /* private mode */ }
-      setIcon(next);
+      var next = MODES[(MODES.indexOf(getTheme()) + 1) % MODES.length];
+      applyTheme(next, true);
     });
   }
 
