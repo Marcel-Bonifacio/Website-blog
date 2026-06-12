@@ -94,7 +94,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  html:not([data-theme="light"]):not([data-theme="dark"]) {
+  html:not([data-theme="light"]):not([data-theme="dark"]):not([data-theme="cb"]) {
     --bg:            #0b1420;
     --bg-subtle:     #101c2c;
     --bg-hover:      #152334;
@@ -194,7 +194,7 @@
 img.icon-medium { filter: invert(1); }
 [data-theme="dark"] img.icon-medium { filter: none; }
 @media (prefers-color-scheme: dark) {
-  html:not([data-theme="light"]):not([data-theme="dark"]) img.icon-medium { filter: none; }
+  html:not([data-theme="light"]):not([data-theme="dark"]):not([data-theme="cb"]) img.icon-medium { filter: none; }
 }
 
 /* ─── Base ─── */
