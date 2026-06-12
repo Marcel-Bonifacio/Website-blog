@@ -20,8 +20,18 @@ excerpt: A one or two sentence summary shown in post listings. Keep it under 260
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Marcel Bonifacio Tirta Wijata">
 <title>Your Post Title | Marcel Bonifacio Tirta Wijata</title>
 <link rel="stylesheet" href="../styles.css">
+<script>
+(function(){
+  try {
+    var t=localStorage.getItem('theme');
+    if(t) document.documentElement.setAttribute('data-theme',t);
+  } catch(e) {}
+})();
+</script>
+<script src="../main.js" defer></script>
 </head>
 <body>
 
@@ -31,53 +41,60 @@ excerpt: A one or two sentence summary shown in post listings. Keep it under 260
     <h1>Marcel Bonifacio Tirta Wijata</h1>
     <p class="subtitle">Energy Researcher &amp; Climate Advocate</p>
   </a>
-  <nav>
-    <ul>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../about.html">About</a></li>
-      <li><a href="../blog.html">Posts</a></li>
-    </ul>
-  </nav>
+  <div class="header-right">
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../blog.html" class="current-page">Posts</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#9790;</button>
+  </div>
 </div>
 </header>
 
 <div class="post-wrapper">
   <a href="../blog.html" class="back-link">&larr; All posts</a>
 
-  <div class="post-header">
-    <h1 class="post-title">Your Post Title</h1>
-    <p class="post-meta">March 27, 2026</p>
-  </div>
+  <article>
+    <header class="post-header">
+      <h1 class="post-title">Your Post Title</h1>
+      <p class="post-meta">March 27, 2026</p>
+    </header>
 
-  <div class="post-content">
+    <div class="post-content">
 
-    <!-- Write your content below using standard HTML.
-         Use <p> for paragraphs, <h2> for section headings,
-         <strong> for bold, <em> for italic, <a href="..."> for links.
-         Images: <img src="../assets/images/photo.jpg" alt="description">  -->
+      <!-- Write your content below using standard HTML.
+           Use <p> for paragraphs, <h2> for section headings,
+           <strong> for bold, <em> for italic, <a href="..."> for links,
+           <blockquote> for quotes.
+           Images: <img src="../assets/images/photo.jpg" alt="description">  -->
 
-    <p>Your introduction paragraph goes here. Explain what this post is about in a few sentences.</p>
+      <p>Your introduction paragraph goes here. Explain what this post is about in a few sentences.</p>
 
-    <h2>First Section Heading</h2>
+      <h2>First Section Heading</h2>
 
-    <p>Body text for this section. You can add as many paragraphs as you need.</p>
+      <p>Body text for this section. You can add as many paragraphs as you need.</p>
 
-    <p>Another paragraph with <strong>bold text</strong> or <em>italic text</em> or
-    <a href="https://example.com" target="_blank" rel="noopener">a link to a source</a>.</p>
+      <p>Another paragraph with <strong>bold text</strong> or <em>italic text</em> or
+      <a href="https://example.com" target="_blank" rel="noopener">a link to a source</a>.</p>
 
-    <h2>Second Section Heading</h2>
+      <h2>Second Section Heading</h2>
 
-    <p>Continue writing your article here.</p>
+      <p>Continue writing your article here.</p>
 
-    <p>Closing thoughts.</p>
+      <p>Closing thoughts.</p>
 
-  </div>
+    </div>
+  </article>
 </div>
 
 <footer>
 <div class="container">
-  <p>Marcel Bonifacio Tirta Wijata &mdash; &copy; <span id="footer-year"></span><script>document.getElementById('footer-year').textContent=new Date().getFullYear();</script></p>
+  <p>Marcel Bonifacio Tirta Wijata &mdash; &copy; <span id="footer-year"></span></p>
 </div>
 </footer>
+
 </body>
 </html>

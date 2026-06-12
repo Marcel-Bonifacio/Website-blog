@@ -39,10 +39,14 @@
 <link rel="stylesheet" href="styles.css">
 <script>
 (function(){
-  var t=localStorage.getItem('theme');
-  if(t) document.documentElement.setAttribute('data-theme',t);
+  try {
+    var t=localStorage.getItem('theme');
+    if(t) document.documentElement.setAttribute('data-theme',t);
+  } catch(e) {}
 })();
 </script>
+<script src="posts.js" defer></script>
+<script src="main.js" defer></script>
 </head>
 <body>
 
@@ -105,107 +109,9 @@
 
 <footer>
 <div class="container">
-  <p>Marcel Bonifacio Tirta Wijata &mdash; &copy; <span id="footer-year"></span><script>document.getElementById('footer-year').textContent=new Date().getFullYear();</script></p>
+  <p>Marcel Bonifacio Tirta Wijata &mdash; &copy; <span id="footer-year"></span></p>
 </div>
 </footer>
 
-<script src="posts.js"></script>
-<script>
-(function () {
-  var main = document.getElementById('posts-main');
-  var sidebarRecent = document.getElementById('sidebar-recent');
-
-  function esc(s) {
-    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-  }
-  function linkAttr(post) { return post.external ? ' target="_blank" rel="noopener"' : ''; }
-
-  function mediumIcons() {
-    return '<img src="assets/images/medium.svg" class="icon-medium" alt="">';
-  }
-
-  function badge(platform) {
-    var icon = '';
-    if (platform === 'Medium') {
-      icon = mediumIcons();
-    } else if (platform === 'Kumparan') {
-      icon = '<img src="assets/images/kumparan.svg" alt="">';
-    }
-    return '<span class="platform-badge">' + icon + esc(platform) + '</span>';
-  }
-
-  function renderTags(tags) {
-    if (!tags || !tags.length) return '';
-    return '<div class="article-tags">' + tags.map(function(t){ return '<span class="tag">'+esc(t)+'</span>'; }).join('') + '</div>';
-  }
-
-  if (!window.POSTS || !POSTS.length) {
-    main.innerHTML = '<p style="color:var(--muted);padding:2rem 0;font-size:0.9rem">No posts yet.</p>';
-    sidebarRecent.innerHTML = '<h2 class="widget-title">Recent Posts</h2><p class="widget-body">No posts yet.</p>';
-    return;
-  }
-
-  var sorted = POSTS.slice().sort(function(a,b){ return new Date(b.dateISO)-new Date(a.dateISO); });
-  var featured = null;
-  for (var i = 0; i < sorted.length; i++) { if (sorted[i].featured) { featured = sorted[i]; break; } }
-  if (!featured) featured = sorted[0];
-  var rest = sorted.filter(function(p){ return p.id !== featured.id; });
-
-  var html = '<article class="article-featured">';
-  if (featured.image) html += '<img src="'+featured.image+'" class="article-featured-img" alt="">';
-  html += '<div class="article-featured-inner">';
-  html += '<span class="featured-label">Featured</span>';
-  html += '<h2 class="article-title"><a href="'+featured.url+'"'+linkAttr(featured)+'>'+esc(featured.title)+(featured.external?' &#8599;':'')+'</a></h2>';
-  html += '<div class="article-meta"><span>'+esc(featured.dateDisplay)+'</span>'+badge(featured.platform)+'</div>';
-  html += '<p class="article-body">'+esc(featured.excerpt)+'</p>';
-  html += renderTags(featured.tags);
-  html += '<a href="'+featured.url+'"'+linkAttr(featured)+' class="article-read-more">Continue Reading</a>';
-  html += '</div></article>';
-
-  rest.slice(0, 4).forEach(function(post) {
-    html += '<article class="article-recent">';
-    if (post.image) html += '<img src="'+post.image+'" class="article-recent-img" alt="">';
-    html += '<div class="article-recent-main">';
-    html += '<h2 class="article-title"><a href="'+post.url+'"'+linkAttr(post)+'>'+esc(post.title)+(post.external?' &#8599;':'')+'</a></h2>';
-    html += '<div class="article-meta"><span>'+esc(post.dateDisplay)+'</span>'+badge(post.platform)+'</div>';
-    html += '<p class="article-body">'+esc(post.excerpt)+'</p>';
-    html += '</div></article>';
-  });
-
-  if (!rest.length) {
-    html += '<p style="color:var(--muted);font-size:0.85rem;margin-top:1.5rem">More posts coming soon.</p>';
-  } else {
-    html += '<p style="margin-top:1.5rem"><a href="blog.html" style="color:var(--blue);font-size:0.9rem">View all posts &rarr;</a></p>';
-  }
-
-  main.innerHTML = html;
-
-  var sbHtml = '<h2 class="widget-title">Recent Posts</h2>';
-  sorted.slice(0,4).forEach(function(post) {
-    sbHtml += '<div class="widget-recent-post">';
-    sbHtml += '<p class="widget-recent-post-title"><a href="'+post.url+'"'+linkAttr(post)+'>'+esc(post.title)+'</a></p>';
-    sbHtml += '<p class="widget-recent-post-date">'+esc(post.dateDisplay)+'</p>';
-    sbHtml += '</div>';
-  });
-  sidebarRecent.innerHTML = sbHtml;
-}());
-
-// Theme toggle
-(function(){
-  var btn = document.getElementById('theme-toggle');
-  function getTheme(){
-    return document.documentElement.getAttribute('data-theme') ||
-      (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  }
-  function setIcon(theme){ btn.innerHTML = theme === 'dark' ? '&#9728;' : '&#9790;'; }
-  setIcon(getTheme());
-  btn.addEventListener('click', function(){
-    var next = getTheme() === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-    setIcon(next);
-  });
-})();
-</script>
 </body>
 </html>

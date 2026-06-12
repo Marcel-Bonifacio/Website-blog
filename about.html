@@ -36,10 +36,13 @@
 <link rel="stylesheet" href="styles.css">
 <script>
 (function(){
-  var t=localStorage.getItem('theme');
-  if(t) document.documentElement.setAttribute('data-theme',t);
+  try {
+    var t=localStorage.getItem('theme');
+    if(t) document.documentElement.setAttribute('data-theme',t);
+  } catch(e) {}
 })();
 </script>
+<script src="main.js" defer></script>
 </head>
 <body>
 
@@ -62,7 +65,7 @@
 </div>
 </header>
 
-<div class="container" style="padding-top:2.5rem;padding-bottom:3rem;max-width:720px">
+<div class="container page-container page-narrow">
   <div class="page-header">
     <h1>About Me</h1>
   </div>
@@ -95,26 +98,9 @@
 
 <footer>
 <div class="container">
-  <p>Marcel Bonifacio Tirta Wijata &mdash; &copy; <span id="footer-year"></span><script>document.getElementById('footer-year').textContent=new Date().getFullYear();</script></p>
+  <p>Marcel Bonifacio Tirta Wijata &mdash; &copy; <span id="footer-year"></span></p>
 </div>
 </footer>
 
-<script>
-(function(){
-  var btn = document.getElementById('theme-toggle');
-  function getTheme(){
-    return document.documentElement.getAttribute('data-theme') ||
-      (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  }
-  function setIcon(theme){ btn.innerHTML = theme === 'dark' ? '&#9728;' : '&#9790;'; }
-  setIcon(getTheme());
-  btn.addEventListener('click', function(){
-    var next = getTheme() === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-    setIcon(next);
-  });
-})();
-</script>
 </body>
 </html>

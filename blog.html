@@ -33,10 +33,14 @@
 <link rel="stylesheet" href="styles.css">
 <script>
 (function(){
-  var t=localStorage.getItem('theme');
-  if(t) document.documentElement.setAttribute('data-theme',t);
+  try {
+    var t=localStorage.getItem('theme');
+    if(t) document.documentElement.setAttribute('data-theme',t);
+  } catch(e) {}
 })();
 </script>
+<script src="posts.js" defer></script>
+<script src="main.js" defer></script>
 </head>
 <body>
 
@@ -59,7 +63,7 @@
 </div>
 </header>
 
-<div class="container" style="padding-top:2.5rem;padding-bottom:3rem">
+<div class="container page-container">
   <div class="page-header">
     <h1>Posts</h1>
     <p class="page-subtitle">Exploring Indonesia's energy transition, climate policy trade-offs, and the environmental stakes of Southeast Asia's resource economy.</p>
@@ -69,69 +73,9 @@
 
 <footer>
 <div class="container">
-  <p>Marcel Bonifacio Tirta Wijata &mdash; &copy; <span id="footer-year"></span><script>document.getElementById('footer-year').textContent=new Date().getFullYear();</script></p>
+  <p>Marcel Bonifacio Tirta Wijata &mdash; &copy; <span id="footer-year"></span></p>
 </div>
 </footer>
 
-<script src="posts.js"></script>
-<script>
-(function () {
-  var list = document.getElementById('blog-list');
-  function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-
-  function mediumIcons() {
-    return '<img src="assets/images/medium.svg" class="icon-medium" alt="">';
-  }
-
-  function badge(platform) {
-    var icon = '';
-    if (platform === 'Medium') icon = mediumIcons();
-    else if (platform === 'Kumparan') icon = '<img src="assets/images/kumparan.svg" alt="">';
-    return '<span class="platform-badge">' + icon + esc(platform) + '</span>';
-  }
-
-  function renderTags(tags) {
-    if (!tags || !tags.length) return '';
-    return '<div class="article-tags">'+tags.map(function(t){ return '<span class="tag">'+esc(t)+'</span>'; }).join('')+'</div>';
-  }
-  function linkAttr(post) { return post.external ? ' target="_blank" rel="noopener"' : ''; }
-
-  if (!window.POSTS || !POSTS.length) {
-    list.innerHTML = '<p style="color:var(--muted);font-size:0.9rem;padding:2rem 0">No posts yet.</p>';
-    return;
-  }
-
-  var sorted = POSTS.slice().sort(function(a,b){ return new Date(b.dateISO)-new Date(a.dateISO); });
-  var html = '';
-  sorted.forEach(function(post) {
-    html += '<div class="blog-card">';
-    if (post.image) html += '<img src="'+post.image+'" class="blog-card-img" alt="">';
-    html += '<div class="blog-card-body">';
-    html += '<h2><a href="'+post.url+'"'+linkAttr(post)+'>'+esc(post.title)+(post.external?' &#8599;':'')+'</a></h2>';
-    html += '<div class="meta"><span>'+esc(post.dateDisplay)+'</span>'+badge(post.platform)+'</div>';
-    html += '<p class="excerpt">'+esc(post.excerpt)+'</p>';
-    html += renderTags(post.tags);
-    html += '</div></div>';
-  });
-  list.innerHTML = html;
-}());
-
-// Theme toggle
-(function(){
-  var btn = document.getElementById('theme-toggle');
-  function getTheme(){
-    return document.documentElement.getAttribute('data-theme') ||
-      (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  }
-  function setIcon(theme){ btn.innerHTML = theme === 'dark' ? '&#9728;' : '&#9790;'; }
-  setIcon(getTheme());
-  btn.addEventListener('click', function(){
-    var next = getTheme() === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-    setIcon(next);
-  });
-})();
-</script>
 </body>
 </html>
