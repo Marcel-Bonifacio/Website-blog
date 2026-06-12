@@ -3,33 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="All articles by Marcel Bonifacio Tirta Wijata — covering Indonesia's energy transition, carbon policy, nickel mining's environmental toll, and ASEAN's renewable energy future.">
+<meta name="description" content="All essays by Marcel Bonifacio Tirta Wijata: Indonesia's energy transition, carbon policy, nickel mining and its environmental toll, and the future of renewable energy in ASEAN.">
 <meta name="author" content="Marcel Bonifacio Tirta Wijata">
 <meta name="robots" content="index, follow">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b1420" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Posts — Marcel Bonifacio Tirta Wijata">
-<meta property="og:description" content="Articles on Indonesia's energy transition, carbon policy, nickel mining's environmental toll, and ASEAN's renewable energy future.">
+<meta property="og:title" content="Essays · Marcel Bonifacio Tirta Wijata">
+<meta property="og:description" content="Essays on Indonesia's energy transition, carbon policy, nickel mining, and the future of renewable energy in ASEAN.">
 <meta property="og:url" content="https://tirtawijata.com/blog.html">
 <meta property="og:image" content="https://tirtawijata.com/assets/images/card_v%3Dde04ef50.jpg">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Posts — Marcel Bonifacio Tirta Wijata">
-<meta name="twitter:description" content="Articles on Indonesia's energy transition, carbon policy, nickel mining's environmental toll, and ASEAN's renewable energy future.">
+<meta name="twitter:title" content="Essays · Marcel Bonifacio Tirta Wijata">
+<meta name="twitter:description" content="Essays on Indonesia's energy transition, carbon policy, nickel mining, and the future of renewable energy in ASEAN.">
 <link rel="canonical" href="https://tirtawijata.com/blog.html">
-<title>Posts — Marcel Bonifacio Tirta Wijata</title>
+<link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+<title>Essays · Marcel Bonifacio Tirta Wijata</title>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Blog",
-  "name": "Marcel Bonifacio Tirta Wijata — Posts",
+  "name": "Marcel Bonifacio Tirta Wijata · Essays",
   "url": "https://tirtawijata.com/blog.html",
   "author": {
     "@type": "Person",
     "name": "Marcel Bonifacio Tirta Wijata",
     "url": "https://tirtawijata.com"
   },
-  "description": "Articles on renewable energy, climate policy, and sustainability in Indonesia and Southeast Asia."
+  "description": "Essays on renewable energy, climate policy, and sustainability in Indonesia and Southeast Asia."
 }
 </script>
+<link rel="preload" href="assets/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/instrument-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 <script>
 (function(){
@@ -44,18 +50,20 @@
 </head>
 <body>
 
+<a class="skip-link" href="#blog-list">Skip to content</a>
+
 <header>
 <div class="container header-inner">
   <a href="index.html" class="site-title">
-    <h1>Marcel Bonifacio Tirta Wijata</h1>
+    <p class="site-name">Marcel Bonifacio Tirta Wijata</p>
     <p class="subtitle">Energy Researcher &amp; Climate Advocate</p>
   </a>
   <div class="header-right">
-    <nav>
+    <nav aria-label="Main">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="blog.html" class="current-page">Posts</a></li>
+        <li><a href="blog.html" class="current-page">Essays</a></li>
       </ul>
     </nav>
     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#9790;</button>
@@ -65,15 +73,27 @@
 
 <div class="container page-container">
   <div class="page-header">
-    <h1>Posts</h1>
-    <p class="page-subtitle">Exploring Indonesia's energy transition, climate policy trade-offs, and the environmental stakes of Southeast Asia's resource economy.</p>
+    <h1>Essays</h1>
+    <p class="page-subtitle">On Indonesia's energy transition, the cost of climate policy, and the resource economy behind Southeast Asia's growth. Filter by topic below.</p>
   </div>
+
+  <div class="filter-bar" id="tag-filter" role="group" aria-label="Filter essays by topic"></div>
+  <p class="filter-count" id="filter-count" aria-live="polite"></p>
+
   <div id="blog-list"></div>
 </div>
 
 <footer>
 <div class="container">
-  <p>Marcel Bonifacio Tirta Wijata &mdash; &copy; <span id="footer-year"></span></p>
+  <div class="footer-inner">
+    <p class="footer-name">Marcel Bonifacio Tirta Wijata</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Essays</a>
+    </nav>
+  </div>
+  <p class="footer-copy">&copy; <span id="footer-year"></span> Marcel Bonifacio Tirta Wijata. All views are my own.</p>
 </div>
 </footer>
 

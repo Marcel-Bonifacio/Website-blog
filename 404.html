@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b1420" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+<title>Page not found · Marcel Bonifacio Tirta Wijata</title>
+<link rel="stylesheet" href="/styles.css">
+<script>
+(function(){
+  try {
+    var t=localStorage.getItem('theme');
+    if(t) document.documentElement.setAttribute('data-theme',t);
+  } catch(e) {}
+})();
+</script>
+<script src="/main.js" defer></script>
+</head>
+<body>
+
+<header>
+<div class="container header-inner">
+  <a href="/" class="site-title">
+    <p class="site-name">Marcel Bonifacio Tirta Wijata</p>
+    <p class="subtitle">Energy Researcher &amp; Climate Advocate</p>
+  </a>
+  <div class="header-right">
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/blog.html">Essays</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#9790;</button>
+  </div>
+</div>
+</header>
+
+<main class="container">
+  <div class="notfound">
+    <p class="code">404</p>
+    <h1>This page doesn't exist.</h1>
+    <p>The link may be old, or the page may have moved. The essays and the about page are still where they should be.</p>
+    <div class="notfound-links">
+      <a href="/" class="text-link">Go home <span class="arrow">&rarr;</span></a>
+      <a href="/blog.html" class="text-link">Browse essays <span class="arrow">&rarr;</span></a>
+    </div>
+  </div>
+</main>
+
+<footer>
+<div class="container">
+  <div class="footer-inner">
+    <p class="footer-name">Marcel Bonifacio Tirta Wijata</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/blog.html">Essays</a>
+    </nav>
+  </div>
+  <p class="footer-copy">&copy; <span id="footer-year"></span> Marcel Bonifacio Tirta Wijata. All views are my own.</p>
+</div>
+</footer>
+
+</body>
+</html>

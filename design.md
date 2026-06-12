@@ -1,108 +1,146 @@
 # Design Guide
 
 ## Philosophy
-Minimalistic. The design is intentionally plain — content first, no decorative clutter. Inspired by the [DevAbdurR/Static-Blog](https://github.com/DevAbdurR/Static-Blog) layout.
+Editorial with warmth. Content first, navy as the foundation, depth from typography, whitespace, soft gradient washes, and tinted surfaces. The site should read like a well-set publication with a clear identity, not a template.
 
 ---
 
 ## Typography
-- **Font:** Helvetica Neue → Helvetica → Arial (system sans-serif fallback)
-- **Base size:** 1rem (16px)
-- **Line height:** 1.75
-- **Anti-aliasing:** `-webkit-font-smoothing: antialiased`
+Two self-hosted variable fonts (latin subsets, `assets/fonts/`, preloaded):
+
+| Use | Font | Notes |
+|---|---|---|
+| Headlines, essay body, names | `Newsreader` (serif) | weights 200-800 + italic, negative tracking on display sizes |
+| UI, body, labels, meta | `Instrument Sans` | weights 400-700 |
+
+- Base size 1rem, line-height 1.7 (UI) / 1.8 (essay text at 1.12rem)
+- Display sizes use `clamp()` for fluid scaling
+- `text-wrap: balance` on headings, `tabular-nums` on dates
+- Labels: 0.72rem, uppercase, letter-spacing 0.14em
 
 ---
 
 ## Color Palette
-All values live in `styles.css` as CSS variables (needed for the dark theme). Both themes are strictly grayscale — flat and close to neutral.
+All values live in `styles.css` as CSS variables. Navy is the foundation in both themes; grays are navy-tinted so nothing reads as flat black or white.
 
 | Role | Variable | Light | Dark |
 |---|---|---|---|
-| Background | `--bg` | `#fff` | `#121212` |
-| Card background | `--bg-card` | `#fff` | `#171717` |
-| Hover background | `--bg-hover` | `#fafafa` | `#1e1e1e` |
-| Primary text | `--text` | `#333` | `#c9c9c9` |
-| Strong text / headings | `--text-strong` | `#111` | `#ededed` |
-| Secondary text | `--secondary` | `#777` | `#9a9a9a` |
-| Muted text | `--muted` | `#999` | `#828282` |
-| Labels | `--label` | `#aaa` | `#6e6e6e` |
-| Borders | `--border` | `#e8e8e8` | `#2a2a2a` |
-| Badge borders | `--border-soft` | `#e0e0e0` | `#333` |
+| Background | `--bg` | `#ffffff` | `#0b1420` |
+| Subtle background | `--bg-subtle` | `#f4f8fb` | `#101c2c` |
+| Hover background | `--bg-hover` | `#ecf3f9` | `#152334` |
+| Tint (chips, tags) | `--tint` | `#e4eef7` | `#16273c` |
+| Primary text | `--text` | `#2a3b4d` | `#c3d2e2` |
+| Strong text / headings | `--text-strong` | `#0e1d30` | `#eef4fa` |
+| Secondary text | `--secondary` | `#56697e` | `#91a6bc` |
+| Muted text | `--muted` | `#75889b` | `#7289a1` |
+| Labels | `--label` | `#8fa1b3` | `#5d7389` |
+| Borders | `--border` | `#dde7f0` | `#1f3046` |
+| Soft borders | `--border-soft` | `#cfdde9` | `#2a3e58` |
+| Accent (links, active) | `--accent` | `#1f4e79` | `#79a9d8` |
+| Accent strong (hover) | `--accent-strong` | `#163a5c` | `#a3c6e8` |
+| Accent soft (kickers) | `--accent-soft` | `#4a7fb5` | `#4d7eae` |
+| Footer | `--footer-bg` → `--footer-bg2` | `#0e1d30` → `#173455` | `#081120` → `#102342` |
 
-No accent colour. No blue, no green.
+One accent family only (navy/blue). No purple, no multi-color gradients.
+
+### Gradients
+- Body: three soft radial washes of `--glow` on a fixed `body::before` layer, drifting slowly (50s alternate loop, transform-only so it stays on the GPU)
+- Hero headline: gradient text with a slow 14s sheen across it
+- Hero headline and 404 numeral: linear gradient text from `--text-strong` into the accent
+- Active filter chips: `--accent` to `--accent-soft` fill
+- Footer: deep navy diagonal gradient block
+- Shadows are navy-tinted (`--shadow`), never pure black in light mode
 
 ---
 
 ## Dark Mode
-- Toggle button in the header (`#theme-toggle`), handled by `main.js`.
-- Choice persists in `localStorage` under `theme`; a tiny inline script in each page's `<head>` applies it before first paint (no flash).
-- With no stored choice, the site follows `prefers-color-scheme`.
-- Dark theme uses the same grayscale system — never colored.
+- Toggle button in the header (`#theme-toggle`), handled by `main.js`
+- Persists in `localStorage`; inline head script applies it before first paint
+- Follows `prefers-color-scheme` when no choice is stored
+- Dark theme is deep navy (`#0b1420` base), not gray or black
 
 ---
 
 ## Layout
-- **Max width:** 1060px, centered, `padding: 0 1.75rem`
-- **Two-column (desktop ≥ 700px):** `main` (flex: 1) + `.sidebar` (220px fixed)
-- **Single column (mobile < 700px):** stacked, sidebar below content
-- **Narrow pages** (About, posts): `max-width: 720px` / `680px`
+- Max width 1060px, `padding: 0 1.75rem`
+- Homepage: full-width hero, then two columns (`main` flex 1 + 230px sidebar)
+- Narrow pages: About 760px, essays 700px
+- Lists use hairline dividers (1px `--border`) instead of boxed cards
+- Single breakpoint: `@media (max-width: 700px)` stacks everything
+
+---
+
+## Motion
+- Scroll reveals: `.reveal` elements fade and rise 14px when entering the viewport, staggered 60ms apart (IntersectionObserver in `main.js`; class added only when JS runs, so no-JS users see everything)
+- Hovers: image scale 1.025-1.04 inside fixed masks, arrow nudges on text links, 200ms transitions
+- Press feedback: small scale-down on buttons and chips
+- `prefers-reduced-motion` disables all of it
 
 ---
 
 ## Components
 
 ### Header
-- Site background, `border-bottom: 1px solid var(--border)`
-- Site title left (name + tagline), nav + theme toggle right
-- Nav links: uppercase, 0.78rem, muted default → strong on active/hover
+- Hairline bottom border, serif site name, sans nav
+- Active nav link underlined in `--text-strong`
+- Round 30px theme toggle
 
-### Article Cards (home + blog listing)
-- `border: 1px solid var(--border)`, `border-radius: 6px`, `padding: 1.25–1.5rem`
-- Hover: border darkens slightly + soft shadow — no color change
-- Matches the card/button aesthetic of the original tirtawijata.com profile
+### Hero (homepage)
+- Uppercase kicker, serif display headline (clamp 2-2.9rem), one-paragraph lede, two text links
 
-### Sidebar Widgets
-- Same card style: `border: 1px solid var(--border)`, `border-radius: 6px`
-- **Profile image:** 110×110px circle (`border-radius: 50%`), centered
-- About Me text is center-aligned
+### Featured essay
+- 21:9 image in rounded mask, kicker "Featured essay", serif title, meta row, excerpt, tags, text link
 
-### Profile Images (About page)
-- 130×130px circle (`border-radius: 50%`)
+### Entry rows (home + essays page)
+- Hairline-divided rows: serif title, date `·` platform meta, excerpt, 168px 4:3 thumbnail right
+- Mobile: thumbnail stacks on top at 2:1
 
-### Platform Badges
-- Tiny bordered label: `font-size: 0.68rem`, `border: 1px solid var(--border-soft)`, `padding: 0.1rem 0.45rem`, `border-radius: 2px`
+### Tag filter (essays page)
+- Pill chips built from post tags ordered by frequency, `aria-pressed` state, inverted fill when active
+- Selection syncs to `#topic=` hash; result count announced via `aria-live`
 
-### Tags
-- Same border style as badges, muted text
+### Sidebar
+- Borderless widgets under uppercase labels with hairline underline
+- 110px circular portrait in full color, navy ring and soft shadow
 
-### Post Pages
-- `.post-wrapper`: 680px max width, centered
-- `.post-content` styles paragraphs, headings, lists, blockquotes, inline code, and images
+### About page
+- Hero: 140px full-color portrait with navy ring, serif name, bio, bordered social chips
+- "What I do": 200px/1fr grid rows per service
+- "Selected writing": title + one-line note left, platform `·` year right
+- "Focus areas": tag chips
+
+### Essay pages
+- 700px column, serif display title, serif body at 1.12rem/1.8
+- Blockquotes: 2px dark left rule, italic
+- `.post-title` and `.post-content` class names are required by `new-post.py`
 
 ### Footer
-- `border-top: 1px solid var(--border)`, centered muted text — no filled background
+- Deep navy gradient block, serif name + footer nav row in light text, small copyright line
+
+### 404
+- Oversized italic serif "404", short explanation, links home and to essays
 
 ---
 
-## Responsive Breakpoint
-`@media (max-width: 700px)` — single column, header stacks vertically, profile image shrinks to 110px circle.
-
----
-
-## Accessibility
-- `:focus-visible` outlines on all interactive elements
-- `prefers-reduced-motion` disables transitions
-- Theme toggle has an `aria-label`
+## SEO
+- Self-hosted fonts (no third-party requests), preloaded woff2
+- `sitemap.xml` + `robots.txt` (drafts disallowed)
+- Canonical, Open Graph, Twitter cards, `theme-color`, JSON-LD (Person / Blog) per page
+- One `h1` per page; site name in header is a styled `p`
+- SVG favicon (`assets/images/favicon.svg`)
+- Skip link, `aria-label`s, focus-visible outlines
 
 ---
 
 ## Files
 | File | Purpose |
 |---|---|
-| `styles.css` | All styles — single file, no framework |
-| `main.js` | Shared behaviour: theme toggle, footer year, post-list rendering |
-| `posts.js` | Post data array shared across all pages |
-| `index.html` | Homepage (rendered by `main.js` from `posts.js`) |
-| `about.html` | Static about page |
-| `blog.html` | All posts listing (rendered by `main.js`) |
-| `_drafts/_post-template.html` | Template for new self-hosted posts |
+| `styles.css` | All styles, single file, no framework |
+| `main.js` | Theme toggle, reveals, list rendering, tag filter, footer year |
+| `posts.js` | Post data array shared across pages |
+| `index.html` | Homepage: hero + featured + latest + sidebar |
+| `blog.html` | All essays with tag filtering |
+| `about.html` | Bio, services, selected writing, focus areas |
+| `404.html` | Not-found page (GitHub Pages picks it up automatically) |
+| `assets/fonts/` | Newsreader + Instrument Sans variable woff2 |
+| `_drafts/_post-template.html` | Template for new self-hosted essays |

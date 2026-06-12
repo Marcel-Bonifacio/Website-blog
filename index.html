@@ -3,22 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Marcel Bonifacio Tirta Wijata is an energy researcher and climate advocate in Indonesia, writing on renewable energy transition, climate policy, and sustainability.">
-<meta name="keywords" content="renewable energy, climate policy, Indonesia, energy research, sustainability, carbon tax, ASEAN energy">
+<meta name="description" content="Marcel Bonifacio Tirta Wijata is an energy researcher and climate advocate in Indonesia. He writes about the renewable energy transition, climate policy, and the resource economy of Southeast Asia.">
 <meta name="author" content="Marcel Bonifacio Tirta Wijata">
 <meta name="robots" content="index, follow">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b1420" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Marcel Bonifacio Tirta Wijata — Energy Researcher & Climate Advocate">
-<meta property="og:description" content="Writings on renewable energy transition, climate policy, and sustainability in Indonesia and Southeast Asia.">
+<meta property="og:title" content="Marcel Bonifacio Tirta Wijata · Energy Researcher and Climate Advocate">
+<meta property="og:description" content="Research and writing on Indonesia's energy transition, climate policy, and the resource economy of Southeast Asia.">
 <meta property="og:image" content="https://tirtawijata.com/assets/images/card_v%3Dde04ef50.jpg">
 <meta property="og:url" content="https://tirtawijata.com">
 <meta property="og:site_name" content="Marcel Bonifacio Tirta Wijata">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Marcel Bonifacio Tirta Wijata — Energy Researcher & Climate Advocate">
-<meta name="twitter:description" content="Writings on renewable energy transition, climate policy, and sustainability in Indonesia and Southeast Asia.">
+<meta name="twitter:title" content="Marcel Bonifacio Tirta Wijata · Energy Researcher and Climate Advocate">
+<meta name="twitter:description" content="Research and writing on Indonesia's energy transition, climate policy, and the resource economy of Southeast Asia.">
 <meta name="twitter:image" content="https://tirtawijata.com/assets/images/card_v%3Dde04ef50.jpg">
 <link rel="canonical" href="https://tirtawijata.com">
-<title>Marcel Bonifacio Tirta Wijata — Energy Researcher & Climate Advocate</title>
+<link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+<link rel="sitemap" type="application/xml" href="sitemap.xml">
+<title>Marcel Bonifacio Tirta Wijata · Energy Researcher and Climate Advocate</title>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -32,10 +36,12 @@
     "https://scholar.google.com/citations?view_op=new_articles&hl=id&imq=Marcel+Bonifacio+Tirta+Wijata"
   ],
   "jobTitle": "Energy Researcher",
-  "description": "Advocate for renewable energy, engaging in research and practice related to renewable energy and climate change in Indonesia.",
+  "description": "Energy researcher and climate advocate working on renewable energy and climate change in Indonesia.",
   "knowsAbout": ["Renewable Energy", "Climate Policy", "Sustainability", "Indonesia", "ASEAN Energy"]
 }
 </script>
+<link rel="preload" href="assets/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/instrument-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 <script>
 (function(){
@@ -50,18 +56,20 @@
 </head>
 <body>
 
+<a class="skip-link" href="#posts-main">Skip to content</a>
+
 <header>
 <div class="container header-inner">
   <a href="index.html" class="site-title">
-    <h1>Marcel Bonifacio Tirta Wijata</h1>
+    <p class="site-name">Marcel Bonifacio Tirta Wijata</p>
     <p class="subtitle">Energy Researcher &amp; Climate Advocate</p>
   </a>
   <div class="header-right">
-    <nav>
+    <nav aria-label="Main">
       <ul>
         <li><a href="index.html" class="current-page">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="blog.html">Posts</a></li>
+        <li><a href="blog.html">Essays</a></li>
       </ul>
     </nav>
     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#9790;</button>
@@ -69,27 +77,39 @@
 </div>
 </header>
 
+<div class="container">
+  <section class="hero">
+    <p class="kicker">Energy &middot; Climate &middot; Indonesia</p>
+    <h1 class="hero-title">Research and writing on Indonesia's energy transition.</h1>
+    <p class="lede">I study how Southeast Asia can move from coal to clean power: the economics behind the shift, the policies that speed it up or slow it down, and the people who carry the cost.</p>
+    <div class="hero-links">
+      <a href="blog.html" class="text-link">Read the essays <span class="arrow">&rarr;</span></a>
+      <a href="about.html" class="text-link">About me <span class="arrow">&rarr;</span></a>
+    </div>
+  </section>
+</div>
+
 <div class="container container-flex">
   <main id="posts-main" role="main"></main>
 
   <aside class="sidebar">
-    <div class="sidebar-widget">
-      <h2 class="widget-title">About Me</h2>
-      <img src="assets/images/image02_v%3Dde04ef50.jpg" alt="Marcel Bonifacio Tirta Wijata" class="widget-image">
-      <p class="widget-body">Advocate for renewable energy, and engaging in research and practice related to renewable energy and climate change.</p>
+    <div class="sidebar-widget reveal">
+      <h2 class="widget-title">About</h2>
+      <img src="assets/images/image02_v%3Dde04ef50.jpg" alt="Portrait of Marcel Bonifacio Tirta Wijata" class="widget-image">
+      <p class="widget-body">I research renewable energy and climate change in Indonesia, and write about both for general readers.</p>
       <a href="about.html" class="widget-link">More about me &rarr;</a>
     </div>
 
-    <div class="sidebar-widget" id="sidebar-recent">
-      <h2 class="widget-title">Recent Posts</h2>
+    <div class="sidebar-widget reveal" id="sidebar-recent">
+      <h2 class="widget-title">Recent</h2>
       <p class="widget-body">Loading&hellip;</p>
     </div>
 
-    <div class="sidebar-widget">
-      <h2 class="widget-title">Find Me Online</h2>
+    <div class="sidebar-widget reveal">
+      <h2 class="widget-title">Elsewhere</h2>
       <div class="social-links">
         <a href="https://www.linkedin.com/in/marceltirtawijata/" target="_blank" rel="noopener" class="social-link">
-          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M12.1,13.8v19.1H5.7V13.8ZM8.9,11.2a3.4,3.4,0,1,1,3.4-3.4A3.4,3.4,0,0,1,8.9,11.2ZM35,33H28.6V22.7c0-2.4-.9-4.3-3.2-4.3a3.3,3.3,0,0,0-3.1,2.3,4,4,0,0,0-.2,1.5V33H15.7V13.8H22v2.8a6.9,6.9,0,0,1,6-3.3c4.5,0,7,3,7,8.6Z"/></svg>
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12.1,13.8v19.1H5.7V13.8ZM8.9,11.2a3.4,3.4,0,1,1,3.4-3.4A3.4,3.4,0,0,1,8.9,11.2ZM35,33H28.6V22.7c0-2.4-.9-4.3-3.2-4.3a3.3,3.3,0,0,0-3.1,2.3,4,4,0,0,0-.2,1.5V33H15.7V13.8H22v2.8a6.9,6.9,0,0,1,6-3.3c4.5,0,7,3,7,8.6Z"/></svg>
           LinkedIn
         </a>
         <a href="https://scholar.google.com/citations?view_op=new_articles&amp;hl=id&amp;imq=Marcel+Bonifacio+Tirta+Wijata" target="_blank" rel="noopener" class="social-link">
@@ -99,8 +119,7 @@
           <img src="assets/images/kumparan.svg" alt=""> Kumparan
         </a>
         <a href="https://medium.com/@marcelbonifaciotirtawijata" target="_blank" rel="noopener" class="social-link">
-          <img src="assets/images/medium.svg" class="icon-medium" alt="Medium">
-          Medium
+          <img src="assets/images/medium.svg" class="icon-medium" alt=""> Medium
         </a>
       </div>
     </div>
@@ -109,7 +128,15 @@
 
 <footer>
 <div class="container">
-  <p>Marcel Bonifacio Tirta Wijata &mdash; &copy; <span id="footer-year"></span></p>
+  <div class="footer-inner">
+    <p class="footer-name">Marcel Bonifacio Tirta Wijata</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Essays</a>
+    </nav>
+  </div>
+  <p class="footer-copy">&copy; <span id="footer-year"></span> Marcel Bonifacio Tirta Wijata. All views are my own.</p>
 </div>
 </footer>
 

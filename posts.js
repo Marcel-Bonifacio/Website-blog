@@ -1,5 +1,5 @@
 /**
- * posts.js — All Blog Posts
+ * posts.js / All Blog Posts
  *
  * To add a new post:
  *  1. Add an entry to the POSTS array below.
@@ -21,7 +21,7 @@ var POSTS = [
     dateISO: "2022-02-27",
     dateDisplay: "February 27, 2022",
     platform: "Kumparan",
-    excerpt: "Electricity tariffs are rising in Indonesia — and renewable energy is getting the blame. But a closer look at IRENA data tells a different story: solar and wind are now cheaper than fossil fuels. So who, or what, is really driving up the cost of power?",
+    excerpt: "Electricity tariffs are rising in Indonesia, and renewable energy is getting the blame. IRENA's data tells a different story: solar and wind are now cheaper than fossil fuels. So what is actually driving up the cost of power?",
     url: "https://kumparan.com/marcel-bonifacio-tirta-wijata/tarif-listrik-naik-apakah-salah-energi-baru-terbarukan-1xaUHV1Me9z",
     image: "https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,f_jpg,q_auto,w_600,h_315,c_lpad,b_white/g_south,l_og_user_zprw89/co_rgb:ffffff,g_south_west,l_text:Heebo_20_bold:Konten%20dari%20Pengguna%0DMarcel%20Bonifacio%20Tirta%20Wijata,x_140,y_26/01hrw4gzwdd6d2q0qzfa82ee50.jpg",
     external: true,
@@ -35,7 +35,7 @@ var POSTS = [
     dateISO: "2025-07-22",
     dateDisplay: "July 22, 2025",
     platform: "Medium",
-    excerpt: "With 283 million people and 68% in their prime working years, Indonesia should be an economic powerhouse. Yet the demographic dividend is slipping away — and if the country doesn't act before the mid-2030s population ages, the window may close for good.",
+    excerpt: "Indonesia has 283 million people, 68% of them in their prime working years. The demographic dividend should be making the country rich, yet it is slipping away. If nothing changes before the population starts ageing in the mid-2030s, the window closes for good.",
     url: "https://medium.com/@marcelbonifaciotirtawijata/why-indonesias-283-million-people-aren-t-making-it-rich-17d7c7162635",
     image: "https://cdn-images-1.medium.com/max/1024/1*uRgkwU8zecIYgUuSGzpzjQ.jpeg",
     external: true,
@@ -49,7 +49,7 @@ var POSTS = [
     dateISO: "2024-10-03",
     dateDisplay: "October 3, 2024",
     platform: "Medium",
-    excerpt: "Indonesia's carbon tax is designed to fight climate change — but at IDR 30 per kg of CO\u2082e, it risks hitting the poorest households hardest. With coal still powering 67.2% of the grid, the transition cost falls unevenly. Can the policy be redesigned to protect the vulnerable?",
+    excerpt: "Indonesia's carbon tax is meant to fight climate change, but at IDR 30 per kg of CO\u2082e it risks hitting the poorest households hardest. With coal still powering 67.2% of the grid, the cost of the transition falls unevenly. Can the policy protect the people least able to pay?",
     url: "https://medium.com/@marcelbonifaciotirtawijata/the-economic-impact-of-indonesias-carbon-tax-on-middle-and-lower-income-population-a3bcf4578eda",
     image: "https://cdn-images-1.medium.com/max/1024/1*F5n0m_Yk43GAiYDIpNt5Tw.jpeg",
     external: true,
@@ -63,7 +63,7 @@ var POSTS = [
     dateISO: "2024-09-07",
     dateDisplay: "September 7, 2024",
     platform: "Medium",
-    excerpt: "Indonesia is the world's top nickel producer — fuelling the EV boom with 1.8 million metric tons in 2023. But behind the green energy narrative lies a trail of deforestation, toxic contamination, and displaced communities. The governance failures are severe, and largely invisible.",
+    excerpt: "Indonesia produced 1.8 million metric tons of nickel in 2023, more than any other country, feeding the global EV boom. Behind the green energy story sits deforestation, toxic contamination, and displaced communities. The damage is severe and largely invisible.",
     url: "https://medium.com/@marcelbonifaciotirtawijata/nickel-minings-dirty-secret-wrecking-indonesia-s-environment-99709d748db4",
     image: "https://cdn-images-1.medium.com/max/1024/1*4yE90J9ESTIKHDP2Bed6xQ.jpeg",
     external: true,
@@ -77,7 +77,7 @@ var POSTS = [
     dateISO: "2024-08-27",
     dateDisplay: "August 27, 2024",
     platform: "Medium",
-    excerpt: "ASEAN's transport sector runs on oil — 91% of its energy comes from petroleum. The region's long-term renewable roadmap aims to flip that, targeting 67% renewable energy by 2050. What will it take to electrify the way Southeast Asia moves?",
+    excerpt: "Petroleum supplies 91% of the energy used by ASEAN's transport sector. The region's long-term renewable roadmap wants to change that, with a target of 67% renewable energy by 2050. What would it take to electrify the way Southeast Asia moves?",
     url: "https://medium.com/@marcelbonifaciotirtawijata/shaping-the-future-of-transportation-the-impact-of-aseans-long-term-renewable-energy-roadmap-e2c595a7f511",
     image: "https://cdn-images-1.medium.com/max/1024/0*3K0ZVpZMJZOideIk.jpeg",
     external: true,
@@ -91,7 +91,7 @@ var POSTS = [
     dateISO: "2024-08-18",
     dateDisplay: "August 18, 2024",
     platform: "Medium",
-    excerpt: "ASEAN is the world's fifth-largest economy — yet one of its most fossil-fuel dependent. A new long-term roadmap targets 23% renewable energy in primary supply by 2025 and 35% in power generation. The ambition is real. So are the obstacles.",
+    excerpt: "ASEAN is the world's fifth-largest economy and one of its most fossil-fuel dependent. A new long-term roadmap targets 23% renewable energy in primary supply by 2025 and 35% in power generation. The ambition is real. So are the obstacles.",
     url: "https://medium.com/@marcelbonifaciotirtawijata/the-asean-renewable-energy-long-term-roadmap-why-it-matters-and-what-are-the-challenges-4da9b103e0bb",
     image: "https://cdn-images-1.medium.com/max/1000/1*Iea-RyxW0YOWnpbrgw97xw.jpeg",
     external: true,
