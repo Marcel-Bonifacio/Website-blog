@@ -1,6 +1,6 @@
 /* =====================================================
    Marcel Tirta Wijata / tirtawijata.com
-   Editorial, grayscale, content-first (see design.md)
+   Editorial, navy foundation, content-first (see design.md)
    Newsreader (display + essays) · Instrument Sans (UI)
    ===================================================== */
 
@@ -43,7 +43,9 @@
   --accent:        #1f4e79;
   --accent-strong: #163a5c;
   --accent-soft:   #4a7fb5;
-  --glow:          rgba(74, 127, 181, 0.13);
+  --glow:          rgba(74, 127, 181, 0.22);
+  --glow2:         rgba(23, 84, 140, 0.14);
+  --bg-glass:      rgba(255, 255, 255, 0.78);
   --shadow:        rgba(22, 58, 92, 0.10);
   --footer-bg:     #0e1d30;
   --footer-bg2:    #173455;
@@ -73,7 +75,9 @@
   --accent:        #79a9d8;
   --accent-strong: #a3c6e8;
   --accent-soft:   #4d7eae;
-  --glow:          rgba(98, 148, 199, 0.12);
+  --glow:          rgba(98, 148, 199, 0.18);
+  --glow2:         rgba(64, 118, 176, 0.13);
+  --bg-glass:      rgba(11, 20, 32, 0.78);
   --shadow:        rgba(0, 0, 0, 0.45);
   --footer-bg:     #081120;
   --footer-bg2:    #102342;
@@ -97,7 +101,9 @@
     --accent:        #79a9d8;
     --accent-strong: #a3c6e8;
     --accent-soft:   #4d7eae;
-    --glow:          rgba(98, 148, 199, 0.12);
+    --glow:          rgba(98, 148, 199, 0.18);
+    --glow2:         rgba(64, 118, 176, 0.13);
+    --bg-glass:      rgba(11, 20, 32, 0.78);
     --shadow:        rgba(0, 0, 0, 0.45);
     --footer-bg:     #081120;
     --footer-bg2:    #102342;
@@ -116,7 +122,7 @@ img.icon-medium { filter: invert(1); }
 /* ─── Base ─── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 7rem; }
 
 body {
   font-family: var(--sans);
@@ -128,25 +134,47 @@ body {
   transition: background 0.2s, color 0.2s;
 }
 
-/* Ambient moving gradient: fixed glow layer drifting slowly behind content */
-body::before {
+/* Liquid gradient: two fixed glow layers flowing in opposite
+   directions at different speeds, like currents passing through
+   each other. Transform-only, so it all stays on the GPU. */
+body::before,
+body::after {
   content: '';
   position: fixed;
-  inset: -22%;
+  inset: -30%;
   z-index: -1;
   pointer-events: none;
-  background:
-    radial-gradient(44rem 32rem at 76% 14%, var(--glow), transparent 60%),
-    radial-gradient(38rem 30rem at 14% 52%, var(--glow), transparent 58%),
-    radial-gradient(32rem 26rem at 58% 86%, var(--glow), transparent 60%);
-  animation: drift 50s ease-in-out infinite alternate;
   will-change: transform;
 }
 
-@keyframes drift {
-  0%   { transform: translate3d(-2.5%, -2%, 0) scale(1) rotate(0.001deg); }
-  50%  { transform: translate3d(2.5%, 2%, 0) scale(1.07); }
-  100% { transform: translate3d(-1%, 2.5%, 0) scale(1.02); }
+body::before {
+  background:
+    radial-gradient(46rem 34rem at 72% 18%, var(--glow), transparent 58%),
+    radial-gradient(36rem 30rem at 18% 68%, var(--glow), transparent 56%);
+  animation: liquid-a 16s ease-in-out infinite;
+}
+
+body::after {
+  background:
+    radial-gradient(42rem 32rem at 28% 24%, var(--glow2), transparent 58%),
+    radial-gradient(32rem 28rem at 80% 74%, var(--glow2), transparent 55%);
+  animation: liquid-b 23s ease-in-out infinite;
+}
+
+@keyframes liquid-a {
+  0%   { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+  25%  { transform: translate3d(3.5%, -2.5%, 0) rotate(1.6deg) scale(1.07); }
+  50%  { transform: translate3d(1.5%, 3%, 0) rotate(-1.2deg) scale(1.12); }
+  75%  { transform: translate3d(-3%, 1.5%, 0) rotate(0.8deg) scale(1.05); }
+  100% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+}
+
+@keyframes liquid-b {
+  0%   { transform: translate3d(0, 0, 0) rotate(0deg) scale(1.05); }
+  25%  { transform: translate3d(-3%, 2.5%, 0) rotate(-1.4deg) scale(1.1); }
+  50%  { transform: translate3d(-1%, -3%, 0) rotate(1deg) scale(1); }
+  75%  { transform: translate3d(3%, -1.5%, 0) rotate(-0.7deg) scale(1.08); }
+  100% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1.05); }
 }
 
 img { display: block; max-width: 100%; }
@@ -164,21 +192,6 @@ h1, h2, h3 { text-wrap: balance; }
 }
 
 ::selection { background: var(--accent); color: var(--bg); }
-
-.skip-link {
-  position: absolute;
-  left: 1rem;
-  top: -3rem;
-  z-index: var(--z-skip);
-  background: var(--bg);
-  color: var(--text-strong);
-  border: 1px solid var(--border);
-  padding: 0.4rem 0.9rem;
-  font-size: 0.8rem;
-  border-radius: 4px;
-  transition: top 0.2s;
-}
-.skip-link:focus { top: 1rem; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
@@ -220,11 +233,20 @@ main { flex: 1; min-width: 0; }
 /* ─── Header ─── */
 header {
   border-bottom: 1px solid var(--border);
-  padding: 1.4rem 0;
-  background: transparent;
-  position: relative;
+  padding: 1.1rem 0;
+  position: sticky;
+  top: 0;
   z-index: var(--z-nav);
-  transition: border-color 0.2s;
+  background: var(--bg);
+  transition: border-color 0.2s, background 0.2s;
+}
+
+@supports (backdrop-filter: blur(14px)) or (-webkit-backdrop-filter: blur(14px)) {
+  header {
+    background: var(--bg-glass);
+    -webkit-backdrop-filter: blur(14px) saturate(1.4);
+    backdrop-filter: blur(14px) saturate(1.4);
+  }
 }
 
 .header-inner {
@@ -312,7 +334,7 @@ nav a.current-page {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: sheen 14s ease-in-out infinite alternate;
+  animation: sheen 8s ease-in-out infinite alternate;
   max-width: 17em;
   margin-bottom: 1.1rem;
 }
@@ -814,8 +836,13 @@ footer p { margin-bottom: 0; }
 
 /* ─── Responsive ─── */
 @media (max-width: 700px) {
-  .header-inner { flex-direction: column; gap: 0.85rem; align-items: flex-start; }
+  /* keep the locked header compact: hide tagline, tighten spacing */
+  header { padding: 0.85rem 0; }
+  .site-title .subtitle { display: none; }
+  .site-title h1, .site-title .site-name { font-size: 1.05rem; }
+  .header-inner { flex-direction: column; gap: 0.6rem; align-items: flex-start; }
   .header-right { width: 100%; justify-content: space-between; }
+  html { scroll-padding-top: 6.5rem; }
   .container-flex { flex-direction: column; gap: 3rem; padding-bottom: 3rem; }
   .sidebar { width: 100%; }
   .hero { padding: 2.5rem 0 2rem; }

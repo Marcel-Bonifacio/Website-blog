@@ -44,8 +44,8 @@ All values live in `styles.css` as CSS variables. Navy is the foundation in both
 One accent family only (navy/blue). No purple, no multi-color gradients.
 
 ### Gradients
-- Body: three soft radial washes of `--glow` on a fixed `body::before` layer, drifting slowly (50s alternate loop, transform-only so it stays on the GPU)
-- Hero headline: gradient text with a slow 14s sheen across it
+- Body: liquid two-layer glow. `body::before` (16s) and `body::after` (23s) each carry two radial blobs and flow in opposite directions with gentle rotation and scale, like currents passing through each other. Transform-only, fixed layers, stays on the GPU
+- Hero headline: gradient text with an 8s sheen passing across it
 - Hero headline and 404 numeral: linear gradient text from `--text-strong` into the accent
 - Active filter chips: `--accent` to `--accent-soft` fill
 - Footer: deep navy diagonal gradient block
@@ -81,9 +81,12 @@ One accent family only (navy/blue). No purple, no multi-color gradients.
 ## Components
 
 ### Header
+- Locked to the top: `position: sticky` with frosted glass (`--bg-glass` + `backdrop-filter: blur(14px) saturate(1.4)`, solid `--bg` fallback via `@supports`)
 - Hairline bottom border, serif site name, sans nav
-- Active nav link underlined in `--text-strong`
+- Active nav link underlined in `--accent`
 - Round 30px theme toggle
+- Mobile: tagline hidden and padding tightened so the locked header stays compact
+- `scroll-padding-top` on `html` keeps anchor targets clear of the header
 
 ### Hero (homepage)
 - Uppercase kicker, serif display headline (clamp 2-2.9rem), one-paragraph lede, two text links
@@ -128,7 +131,7 @@ One accent family only (navy/blue). No purple, no multi-color gradients.
 - Canonical, Open Graph, Twitter cards, `theme-color`, JSON-LD (Person / Blog) per page
 - One `h1` per page; site name in header is a styled `p`
 - SVG favicon (`assets/images/favicon.svg`)
-- Skip link, `aria-label`s, focus-visible outlines
+- `aria-label`s and focus-visible outlines (no skip link by owner preference; the locked header keeps nav one tab away)
 
 ---
 
