@@ -44,7 +44,7 @@ All values live in `styles.css` as CSS variables. Navy is the foundation in both
 One accent family only (navy/blue). No purple, no multi-color gradients.
 
 ### Gradients
-- Body: liquid two-layer glow. `body::before` (16s) and `body::after` (23s) each carry two radial blobs and flow in opposite directions with gentle rotation and scale, like currents passing through each other. Transform-only, fixed layers, stays on the GPU
+- Background: five blurred colour blobs (`--blob1`-`--blob5`, navy through azure to a soft teal-cyan) orbiting independently on a fixed `.gradient-bg` layer injected by `main.js`. Three orbit on offset transform-origins (24s/28s/36s), one drifts vertically (26s), one horizontally (30s). One `blur(42px)` pass on the container; `screen` blend in dark mode, `normal` in light. Inspired by Aceternity's background-gradient-animation
 - Hero headline: gradient text with an 8s sheen passing across it
 - Hero headline and 404 numeral: linear gradient text from `--text-strong` into the accent
 - Active filter chips: `--accent` to `--accent-soft` fill

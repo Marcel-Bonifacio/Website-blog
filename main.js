@@ -72,6 +72,21 @@
     });
   }
 
+  /* ── Animated gradient background ── */
+
+  (function () {
+    if (document.querySelector('.gradient-bg')) return;
+    var bg = document.createElement('div');
+    bg.className = 'gradient-bg';
+    bg.setAttribute('aria-hidden', 'true');
+    for (var i = 1; i <= 5; i++) {
+      var blob = document.createElement('div');
+      blob.className = 'g' + i;
+      bg.appendChild(blob);
+    }
+    document.body.insertBefore(bg, document.body.firstChild);
+  })();
+
   /* ── Footer year ── */
 
   var yearEl = document.getElementById('footer-year');
