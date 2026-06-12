@@ -79,7 +79,7 @@ def append_to_posts_js(entry):
         '    dateDisplay: "' + entry["dateDisplay"] + '",\n'
         '    platform: "Own",\n'
         '    excerpt: ' + json.dumps(entry["excerpt"]) + ',\n'
-        '    url: "posts/' + entry["id"] + '.html",\n'
+        '    url: "/posts/' + entry["id"] + '",\n'
         '    external: false,\n'
         '    tags: ' + tags_json + ',\n'
         '    featured: false\n'

@@ -159,7 +159,7 @@
         html += '<div class="entry-list">';
         rest.slice(0, 4).forEach(function (post) { html += entryHtml(post, false); });
         html += '</div>';
-        html += '<p class="view-all-link"><a href="blog.html" class="text-link">All essays <span class="arrow">&rarr;</span></a></p>';
+        html += '<p class="view-all-link"><a href="/blog" class="text-link">All essays <span class="arrow">&rarr;</span></a></p>';
       }
 
       main.innerHTML = html;
