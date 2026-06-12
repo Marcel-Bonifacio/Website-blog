@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   sync:
@@ -31,3 +32,13 @@ jobs:
           file_pattern: posts.js
           commit_user_name: "github-actions[bot]"
           commit_user_email: "github-actions[bot]@users.noreply.github.com"
+
+      # GitHub auto-disables scheduled workflows after 60 days of repo
+      # inactivity. Re-enabling the workflow via the API on every run
+      # resets that timer, so the schedule stays active even when no
+      # new posts are committed for months.
+      - name: Keep scheduled workflow enabled
+        if: github.event_name == 'schedule'
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/sync.yml/enable"
+        env:
+          GH_TOKEN: ${{ github.token }}
